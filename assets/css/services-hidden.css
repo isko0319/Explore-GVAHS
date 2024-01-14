@@ -1,0 +1,11 @@
+.hidden .history-hidden-div-item {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid whitesmoke;
+    border-left: 2px solid whitesmoke;
+    gap: 80%;
+}                                               
+.hidden .history-hidden-div-item p {
+    font-size: 2vh;
+}
