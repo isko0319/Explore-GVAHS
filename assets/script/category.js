@@ -8,7 +8,9 @@ function handleTouchStart(event) {
 function handleTouchEnd(event, divNumber) {
     touchEndX = event.changedTouches[0].clientX;
     handleSwipe(divNumber);
-document.body.style.overfl}
+    document.body.style.overflow = 'auto'; // Corrected the syntax
+}
+
 
 function handleSwipe(divNumber) {
     var swipeDistance = touchEndX - touchStartX;
@@ -22,6 +24,7 @@ function toggleDisplay(divNumber) {
     var hiddenDiv = document.getElementById('hiddenDiv' + divNumber);
     var disabledContent = document.getElementById('header'); // Update this ID based on your structure
 
+    document.body.style.overflow = 'hidden'; // Corrected the syntax
     overflow = 'hidden'; // Disable scrolling on the background
     hiddenDiv.style.display = 'flex';
     hiddenDiv.style.animation = 'slideIn 0.5s forwards';
