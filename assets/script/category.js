@@ -24,9 +24,9 @@ function toggleDisplay(divNumber) {
     var hiddenDiv = document.getElementById('hiddenDiv' + divNumber);
     var disabledContent = document.getElementById('header'); // Update this ID based on your structure
 
-    document.body.style.overflow = 'hidden'; // Corrected the syntax
     overflow = 'hidden'; // Disable scrolling on the background
     hiddenDiv.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Corrected the syntax
     hiddenDiv.style.animation = 'slideIn 0.5s forwards';
     disabledContent.classList.add('disabled-content');
 
