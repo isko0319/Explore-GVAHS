@@ -1,5 +1,6 @@
-var touchStartX = 0;
-var touchEndX = 0;
+// Simplify touch event handling
+let touchStartX = 0;
+let touchEndX = 0;
 
 function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
@@ -8,110 +9,106 @@ function handleTouchStart(event) {
 function handleTouchEnd(event, divNumber) {
     touchEndX = event.changedTouches[0].clientX;
     handleSwipe(divNumber);
-    document.body.style.overflow = 'auto'; // Corrected the syntax
+    document.body.style.overflowX = 'auto';
 }
 
-
 function handleSwipe(divNumber) {
-    var swipeDistance = touchEndX - touchStartX;
-
+    const swipeDistance = touchEndX - touchStartX;
     if (swipeDistance > 50) {
         closeDiv(divNumber);
     }
 }
 
 function toggleDisplay(divNumber) {
-    var hiddenDiv = document.getElementById('hiddenDiv' + divNumber);
-    var disabledContent = document.getElementById('header'); // Update this ID based on your structure
+    const hiddenDiv = document.getElementById('hiddenDiv' + divNumber);
+    const disabledContent = document.getElementById('header');
 
-    overflow = 'hidden'; // Disable scrolling on the background
+    document.body.style.overflow = 'hidden'; // Disables both horizontal and vertical overflow
     hiddenDiv.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Corrected the syntax
     hiddenDiv.style.animation = 'slideIn 0.5s forwards';
     disabledContent.classList.add('disabled-content');
 
     // Attach touch event listeners
     hiddenDiv.addEventListener('touchstart', handleTouchStart);
-    hiddenDiv.addEventListener('touchend', function(event) {
-        handleTouchEnd(event, divNumber);
-    });
+    hiddenDiv.addEventListener('touchend', event => handleTouchEnd(event, divNumber));
 }
 
 function closeDiv(divNumber) {
-  var hiddenDiv = document.getElementById('hiddenDiv' + divNumber);
-  var disabledContent = document.getElementById('header'); // Update this ID based on your structure
+    const hiddenDiv = document.getElementById('hiddenDiv' + divNumber);
+    const disabledContent = document.getElementById('header');
 
-  hiddenDiv.style.animation = 'slideOut 0.5s forwards';
-  setTimeout(function () {
-      hiddenDiv.style.display = 'none';
-      document.body.style.overflow = 'auto'; // Enable scrolling on the background
-      disabledContent.classList.remove('disabled-content');
-  }, 500); // Adjust the time to match the transition duration
+    hiddenDiv.style.animation = 'slideOut 0.5s forwards';
+    setTimeout(() => {
+        hiddenDiv.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        disabledContent.classList.remove('disabled-content');
+    }, 500);
 
-  // Remove touch event listeners after closing
-  hiddenDiv.removeEventListener('touchstart', handleTouchStart);
-  hiddenDiv.removeEventListener('touchend', handleTouchEnd);
+    // Remove touch event listeners after closing
+    hiddenDiv.removeEventListener('touchstart', handleTouchStart);
+    hiddenDiv.removeEventListener('touchend', event => handleTouchEnd(event, divNumber));
 }
 
 // Handle scroll events to show/hide the close button
-var lastScrollTop = 0;
+let lastScrollTop = 0;
 
-document.getElementById('hiddenDiv1').addEventListener('scroll', function () {
-    var scrollTop = this.scrollTop;
+function handleScroll() {
+    const scrollTop = this.scrollTop;
 
     if (scrollTop > lastScrollTop) {
-        // Scrolling down
         document.querySelector('.close-category').classList.add('fade-out');
         document.querySelector('.close-category').classList.remove('fade-in');
     } else {
-        // Scrolling up
         document.querySelector('.close-category').classList.add('fade-in');
         document.querySelector('.close-category').classList.remove('fade-out');
     }
 
     lastScrollTop = scrollTop;
-});
+}
 
-// JavaScript for handling scroll events
-var lastScrollTop = 0;
-var closeButton = document.getElementById('closeButton');
+document.getElementById('hiddenDiv1').addEventListener('scroll', handleScroll);
 
-document.getElementById('hiddenDiv1').addEventListener('scroll', function () {
-    var scrollTop = this.scrollTop;
+// Additional scroll event handling
+const closeButton = document.getElementById('closeButton');
+document.getElementById('hiddenDiv1').addEventListener('scroll', () => {
+    const scrollTop = this.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-        // Scrolling down
-        closeButton.classList.add('fade-out');
-    } else {
-        // Scrolling up
-        closeButton.classList.remove('fade-out');
-    }
-
+    closeButton.classList.toggle('fade-out', scrollTop > lastScrollTop);
     lastScrollTop = scrollTop;
 });
-function searchItems() {
-    var input = document.getElementById('searchInput').value.toLowerCase();
-    var items = document.getElementsByClassName('history-hidden-div-item');
 
-    // Reset animation properties
-    for (var i = 0; i < items.length; i++) {
-        items[i].style.animation = 'none';
+function searchItems() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const items = document.getElementsByClassName('event-hidden-div-item');
+    let foundItems = false; // Flag to check if any items are found
+
+    // Reset animation properties and display all items
+    for (const item of items) {
+        item.style.animation = 'none';
+        item.style.display = 'block';
     }
 
-    for (var i = 0; i < items.length; i++) {
-        var itemId = items[i].getAttribute('id');
-        var itemText = items[i].getElementsByTagName('p')[0].textContent.toLowerCase();
+    for (const item of items) {
+        const itemId = item.getAttribute('id');
+        const itemText = item.getElementsByTagName('p')[0].textContent.toLowerCase();
 
-        console.log('Item ID:', itemId); // Log the item ID for debugging
-        console.log('Item Text:', itemText); // Log the item text for debugging
+        console.log('Item ID:', itemId);
+        console.log('Item Text:', itemText);
 
         if (itemText.includes(input) || itemId.includes(input)) {
-            items[i].style.display = 'block';
-
-            // Apply animation for visible items
-            items[i].style.animation = 'slideInRightToLeft 0.5s ease-in-out 200ms forwards';
+            item.style.animation = 'slideInRightToLeft 0.5s ease-in-out 200ms forwards';
+            foundItems = true; // Set the flag to true if at least one item is found
         } else {
-            items[i].style.display = 'none';
+            item.style.display = 'none';
         }
     }
+
+    // Display a message if no items are found
+    const noItemsMessage = document.getElementById('noItemsMessage');
+    if (!foundItems) {
+        noItemsMessage.style.display = 'block';
+    } else {
+        noItemsMessage.style.display = 'none';
+    }
 }
+
