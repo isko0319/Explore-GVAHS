@@ -98,6 +98,7 @@ p {
 	height: 100%;
 	max-width: 1300px;
 	padding: 0 10px;
+	overflow: hidden;
 }
 #header .nav-list ul {
 	list-style: none;
@@ -112,8 +113,9 @@ p {
 	justify-content: center;
 	align-items: center;
 	z-index: 1;
-	overflow-x: hidden;
+	overflow-x: hidden;	
 	transition: 0.5s ease left;
+	
 }
 #header .nav-list ul.active {
 	left: 0%;
@@ -161,6 +163,7 @@ p {
 	cursor: pointer;
 	transform: scale(0.8);
 	margin-right: 20px;
+	
 }
 #header .hamburger:after {
 	position: absolute;
@@ -210,7 +213,6 @@ p {
 	background-position: top center;
 	position: relative;
 	z-index: 1;
-
 }
 #hero::after {
 	content: '';
@@ -306,13 +308,6 @@ p {
 	cursor: pointer;
 	transition: transform 0.3s ease-in-out;
   }
-
-#services .services.container {
-	text-align:center;
-}
-#services-top p{
-	text-align: center;
-}
   
   .service-item p {
 	opacity: 0;
@@ -321,7 +316,7 @@ p {
   }
   
   .service-item:hover {
-	transform: scale(1.1); /* Adjust the scale factor as needed */
+	transform: scale(1.1);/* Adjust the scale factor as needed */
 	transform: translateX(220px);
   }
   
@@ -379,9 +374,11 @@ p {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 100px 0;
+	overflow: hidden;
 }
 #projects .projects-header h1 {
 	margin-bottom: 50px;
+	overflow: hidden;
 }
 #projects .all-projects {
 	display: flex;
@@ -396,7 +393,6 @@ p {
 	flex-direction: column;
 	width: 80%;
 	margin: 20px auto;
-	overflow: hidden;
 	border-radius: 10px;
 }
 #projects .project-info {
@@ -500,6 +496,7 @@ p {
 	max-width: 1200px;
 	margin: 0 auto;
 	width: 90%;
+	overflow: hidden;
 }
 #contact .contact-items {
 	/* max-width: 400px; */
@@ -774,7 +771,7 @@ p {
     padding: 20px;
     overflow-y: auto;
     margin-left: 0;
-    margin-top: 20%;
+    margin-top: 30%;
     padding-top: 10px;
 	overflow-x: hidden;
 }
@@ -790,7 +787,10 @@ p {
     opacity: 0; /* Initially set opacity to 0 */
     animation: slideInRightToLeft 0.5s ease-in-out 200ms forwards;
 }
+/*for event*/
 
+
+/*event category */
 
 @keyframes slideInRightToLeft {
     0% {
@@ -869,21 +869,6 @@ p {
 
 
 @keyframes slideIn {
-  from {
-    right: 100%;
-  }
-  to {
-    right: 20%; /* Adjusted to leave 80% visible on the left side */
-  }
-}
-
-/* Add your additional styling as needed */
-
-  .hidden p {
-	font-size: 2vh;
-	color: white
-  }
-  @keyframes slideIn {
 	from {
 	  left: 100%;
 	}
@@ -891,6 +876,15 @@ p {
 	  left: 0;
 	}
   }
+  
+
+/* Add your additional styling as needed */
+
+  .hidden p {
+	font-size: 2vh;
+	color: white
+  }
+
 
   @keyframes slideOut {
 	from {
@@ -917,19 +911,28 @@ p {
   .fade-out {
     opacity: 0 !important;
 }
-#searchInput {
-	  position: absolute;
-	  top: 15%;
-	  left: 10%;
-	  background: none;
-	  border: none;
-	  font-size: 16px;
-	  color: white;
-	  cursor: pointer;
-	  opacity: 1; /* Initially visible */
-	  transition: opacity 0.2s ease; /* Add a transition for smoother fading */
-  }
+.search-input {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	width: 80%;
+	padding: 10px;
+	background-color: #343030;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	color: #ffffff;
+	transition: box-shadow 0.3s ease;
+	box-shadow: 0px 2px 4px rgba(230, 224, 224, 0.963);
+}
 
+.search-input:hover,
+.search-input:focus {
+	box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+	border-color: #007bff;
+}
+
+  
   
   @keyframes moveLoop {
 	0% {
