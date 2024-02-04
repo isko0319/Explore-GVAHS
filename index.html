@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/event.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/page/gvahs.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/style1.css">
   <link rel="stylesheet" href="assets/css/services-hidden.css">
   <link type="image/x-icon" href="assets/img/page/gvahs.ico">  <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
@@ -64,7 +66,7 @@
       <div class="service-bottom" >
         <div class="service-item" data-aos="fade-right" style="background-image: url(assets/img/services/history-bg.jpg);" onclick="toggleDisplay(1)">
           <div class="icon"><img src="https://www.svgrepo.com/show/161751/history.svg" /></div>
-          <h2><span>H</span>I<span>S</span>TORY <span>O</span>F GVA<span>S</span>H</h2>
+          <h2><span>H</span>ISTORY <span>O</span>F GVA<span>S</span>H</h2>
           <p>In History Category, it shows the history of the school, where you can get a lot of information/historic information all about GVAHS lets explore it </p>
         </div>
         <div class="service-item" data-aos="fade-left" style="background-image: url(assets/img/services/events-bg.jfif);" onclick="toggleDisplay(2)">
@@ -89,59 +91,68 @@
   <!-- start of category hidden div-->
   <div id="hiddenDiv1" class="hidden" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event, 1)">
     <button class="close-category" onclick="closeDiv(1)"></button>
-    <input type="text" id="searchInput" oninput="searchItems()" placeholder="Search...">
-    <div class="history-hidden-div">
-        <div class="history-hidden-div-item" id="item one">
-            <p>this is item 1</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 2">
-            <p>this is item 2</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 3">
-            <p>this is item 3</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 4">
-            <p>may bata</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 5">
-            <p>this is item 5</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 6">
-            <p>this is item 6</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 7">
-            <p>this is item 7</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 8">
-            <p>this is item 8</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 9">
-            <p>this is item 9</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 10">
-            <p>this is item 10</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 11">
-            <p>this is item 11</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 12">
-            <p>this is item 12</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 14">
-          <p>this is item 13</p>
-        </div>
-        <div class="history-hidden-div-item" id="old">
-          <p>this is item 14</p>
-        </div>
-        <div class="history-hidden-div-item" id="item 16">
-          <p>this is item 15</p>
-      </div>
+    
+
     </div>
 </div>
   
   <div id="hiddenDiv2" class="hidden" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event, 2)">
-    <p>This is the hidden div for Events</p>
     <button class="close-category" onclick="closeDiv(2)"></button>
+    <input type="text" id="searchInput" oninput="searchItems()" class="search-input" placeholder="Search...">
+
+    <div class="event-hidden-div">
+      <div class="event-header" style="font-size: 3.5vh; color: aliceblue; text-align: center; font-family: 'Courier New', Courier, monospace; font-style: normal; font-weight: 100;"><p>A few months ago Gabaldon Vocational Agriculture High School (GVAHS)
+         declare that there will be a film making contest that all grade level of gvash can cooperate such as Grade 7,8,9,10 and even senior high Grade 11 and 12.</p></div>
+        <div class="event-hidden-div-item" id="kamao">
+            <p>KAMAO </p>
+              <p>FILM BY</p>
+              <p>11 ABM A</p>
+            <img src="assets/img/event/2.jpg" class="event-img">
+        </div>
+        <div class="event-hidden-div-item" id="alingasngas">
+            <p>ALINGASNGAS</p>
+            <p>FILM BY</p>
+            <p>10 STE</p>
+            <img src="assets/img/event/3.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 3">
+            <p>this is item 3</p>
+            <img src="assets/img/event/4.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 4">
+            <p>may bata</p>
+            <img src="assets/img/event/5.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 5">
+            <p>this is item 5</p>
+            <img src="assets/img/event/6.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 6">
+            <p>this is item 6</p>
+            <img src="assets/img/event/7.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 7">
+            <p>this is item 7</p>
+            <img src="assets/img/event/8.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 8">
+            <p>this is item 8</p>
+            <img src="assets/img/event/9.jpg" alt="" srcset="">           
+        </div>
+        <div class="event-hidden-div-item" id="item 9">
+            <p>this is item 9</p>
+           <img src="assets/img/event/10.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 10">
+            <p>this is item 10</p>
+           <img src="assets/img/event/11.jpg" alt="" srcset="">
+        </div>
+        <div class="event-hidden-div-item" id="item 11">
+            <p>this is item 11</p>
+           <img src="assets/img/event/12.jpg" alt="" srcset="">
+        </div>
+      <div id="noItemsMessage" style="display: none; color: white; font-size: 2vh; text-align: center; margin-top: 8%;">No items found.</div>
+  </div>
   </div>
   
   <div id="hiddenDiv3" class="hidden" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event, 3)">
@@ -288,7 +299,7 @@
       <div class="brand">
         <h1><span>FR</span>AN<span>C</span>ISCO</h1>
       </div>
-      <h2>FRONT END BACK END WEB DEVELOPER</h2>
+      <h2>FRONT END BACK END/WEB APPLICATION DEVELOPER</h2>
       <div class="social-icon">
         <div class="social-item">
           <a href="https://www.facebook.com/ishyyko" target="_blank"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
